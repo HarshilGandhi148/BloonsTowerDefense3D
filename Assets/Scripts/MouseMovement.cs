@@ -13,6 +13,10 @@ public class MouseMovement : MonoBehaviour
     public float topClamp = -90f;
     public float bottomClamp = 90f;
 
+    // public float leftClamp = -90f;
+    // public float rightClamp = 90f;
+
+
 
     void Start()
     {
@@ -29,6 +33,7 @@ public class MouseMovement : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, topClamp, bottomClamp);
 
         yRotation += mouseX;
+        // yRotation = Mathf.Clamp(yRotation, leftClamp, rightClamp);
 
         transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
     }

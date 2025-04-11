@@ -16,18 +16,20 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     bool isMoving;
 
-    private Vector3 lastPosition = new Vector3(0f, 0f, 0f);
+    private Vector3 lastPosition;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        lastPosition = transform.position; // Initialize last position to the current position of the player
         controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         
         if (isGrounded && velocity.y < 0)
